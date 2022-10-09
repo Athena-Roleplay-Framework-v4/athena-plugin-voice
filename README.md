@@ -24,4 +24,17 @@ git clone git@github.com:Stuyk/athena-plugin-voice.git
 git clone https://github.com/Stuyk/athena-plugin-voice
 ```
 
-4. Start the Server
+4. Ensure that settings are setup for voice in your production configuration.
+
+```json
+"voice": {
+    "bitrate": 64000,
+    "externalSecret": null,
+    "externalHost": null,
+    "externalPort": null,
+    "externalPublicHost": null,
+    "externalPublicPort": null
+}
+```
+
+5. Start the Server
