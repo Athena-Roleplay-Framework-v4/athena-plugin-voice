@@ -1,5 +1,3 @@
-import * as alt from 'alt-shared';
-
 export interface IVoiceChannel<Player, VoiceChannel> {
     /**
      * Name of the voice channel we're creating.

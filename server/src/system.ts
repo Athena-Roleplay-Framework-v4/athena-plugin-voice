@@ -1,9 +1,8 @@
 import * as alt from 'alt-server';
-import { PlayerEvents } from '../../../../server/events/playerEvents';
+import { Athena } from '@AthenaServer/api/athena';
+import { ATHENA_EVENTS_PLAYER } from '@AthenaShared/enums/athenaEvents';
 import { IVoiceChannel } from '../../shared/interfaces';
-import { ATHENA_EVENTS_PLAYER } from '../../../../shared/enums/athenaEvents';
 import { VOICE_CONFIG } from '../../shared/src/config';
-import { Athena } from '../../../../server/api/athena';
 
 const Channels: Array<IVoiceChannel<alt.Player, alt.VoiceChannel>> = [];
 
@@ -23,7 +22,7 @@ export class VoiceSystem {
             VoiceSystem.createChannel(VOICE_CONFIG.MAIN_VOICE_CHANNEL_NAME, true, 25);
 
             // Enable voice channel joining on character select, and add to main channel.
-            PlayerEvents.on(ATHENA_EVENTS_PLAYER.SELECTED_CHARACTER, (player: alt.Player) => {
+            Athena.events.player.on(ATHENA_EVENTS_PLAYER.SELECTED_CHARACTER, (player: alt.Player) => {
                 VoiceSystem.addPlayer(player, VOICE_CONFIG.MAIN_VOICE_CHANNEL_NAME);
             });
 
